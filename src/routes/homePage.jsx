@@ -1,4 +1,4 @@
-import H1 from "../styled-tags";
+import {H1} from "../styled-tags";
 
 export default function HomePage() {
   return (

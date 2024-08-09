@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import H1 from "../styled-tags";
+import { H1 } from "../styled-tags";
 const useItemFetch = () => {
   const [items, setItems] = useState(null);
   const [error, setError] = useState(null);
@@ -20,11 +20,11 @@ const useItemFetch = () => {
         setLoading(false);
       });
   }, []);
-  return {items,error,loading}
+  return { items, error, loading };
 };
 export default function ShopPage() {
-  const {items,error,loading} = useItemFetch();
-  return loading ?  (
+  const { items, error, loading } = useItemFetch();
+  return loading ? (
     <>
       <H1>Loading...</H1>
     </>
@@ -37,5 +37,7 @@ export default function ShopPage() {
         })}
       </ul>
     </>
-  ): <p>A network error was encountered.</p>
+  ) : (
+    <p>A network error was encountered.</p>
+  );
 }
