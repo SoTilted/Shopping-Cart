@@ -5,7 +5,7 @@ const useItemFetch = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=5")
+    fetch("https://fakestoreapi.com/products/category/jewelery?limit=5")
       .then((res) => {
         if (res.status >= 400) {
           throw new Error("server error");

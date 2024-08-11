@@ -5,22 +5,31 @@ import {
   NavSiteID,
   NavCart,
   Icon,
-  H1
+  H1,
 } from "../styled-tags";
 import { mdilCart } from "@mdi/light-js";
 import { mdiStoreCheck } from "@mdi/js";
+import PropTypes from "prop-types";
+NavLink.propTypes = {
+  primary: PropTypes.bool,
+  secondary: PropTypes.bool,
+};
 
 export default function NavigationBar() {
   return (
     <>
       <NavBar>
         <NavSiteID>
-          <Icon primary path={mdiStoreCheck} size={1.5} />
+          <Icon primary={true} path={mdiStoreCheck} size={1.5} />
           <H1>Shop</H1>
         </NavSiteID>
         <NavLinks>
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"shop"}>Shop</NavLink>
+          <NavLink primary={true} to={"/"}>
+            Home
+          </NavLink>
+          <NavLink primary={true} to={"shop"}>
+            Shop
+          </NavLink>
         </NavLinks>
         <NavCart>
           <Icon path={mdilCart} size={1.3} />
