@@ -11,7 +11,6 @@ const coolBlack = "rgb(32, 35, 30)";
 
 const GlobalStyle = createGlobalStyle`
 #root{
-  height:100dvh;
   display:flex;
   flex-direction:column;
 }

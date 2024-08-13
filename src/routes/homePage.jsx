@@ -60,7 +60,9 @@ export default function HomePage() {
               </p>
             </Box>
             <Box>
-              <Icon path={mdiAccountHeart} color={"red"} size={1.5} />
+              <div>
+                <Icon path={mdiAccountHeart} color={"red"} size={1.5} />
+              </div>
               <h2>Individuality.</h2>
               <p>
                 No two pieces are the same, we also do custom requests to
@@ -68,7 +70,9 @@ export default function HomePage() {
               </p>
             </Box>
             <Box>
-              <Icon path={mdiBriefcase} color={"brown"} size={1.5} />
+              <div>
+                <Icon path={mdiBriefcase} color={"brown"} size={1.5} />
+              </div>
               <h2>Professionalism.</h2>
               <p>
                 Our employees are the cream of the crop, always striving for
@@ -76,7 +80,9 @@ export default function HomePage() {
               </p>
             </Box>
             <Box>
-              <Icon path={mdiClockFast} color={"gold"} size={1.5} />
+              <div>
+                <Icon path={mdiClockFast} color={"gold"} size={1.5} />
+              </div>
               <h2>On Time.</h2>
               <p>
                 As valuable as{" "}

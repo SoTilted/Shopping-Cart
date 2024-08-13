@@ -43,7 +43,6 @@ export default function Card({ image, title, rating, price, classname }) {
 
 export async function loader({ params }) {
   const data = await localforage.getItem("data");
-  console.log(data);
   return data ?? null;
 }
 export async function action({ params, request }) {
