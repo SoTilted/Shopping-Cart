@@ -20,6 +20,7 @@ import PropTypes from "prop-types";
 
 H1.propTypes = {
   underscore: PropTypes.bool,
+  primary: PropTypes.bool,
 };
 
 NavLink.propTypes = {
@@ -33,7 +34,7 @@ export default function HomePage() {
       <MainContent shop={false}>
         <Banner>
           <PageHeader>
-            <H1>
+            <H1 primary={true}>
               You want to be your <u>best</u> version?
             </H1>
             <p>Then we are inevitable.</p>

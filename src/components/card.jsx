@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { CardDiv } from "../styled-tags";
 import { Form } from "react-router-dom";
 import localforage from "localforage";
-export default function Card({ image, title, rating, price }) {
+
+export default function Card({ image, title, rating, price, classname }) {
   const [input, setInput] = useState("");
   return (
     <>
-      <CardDiv>
-        <img src={image} alt="fake jewellery" />
+      <CardDiv >
+        <img className={classname} src={image} alt="" />
         <div>
           <h2>{title}</h2>
           <p>{rating}</p>
@@ -29,19 +30,20 @@ export default function Card({ image, title, rating, price }) {
           <button
             type="submit"
             onClick={() => {
-              set(input);
+              if (input) set(input);
             }}
           >
-            Add to cart!
+            Add To Cart!
           </button>
         </Form>
       </CardDiv>
     </>
   );
 }
+
 export async function loader({ params }) {
   const data = await localforage.getItem("data");
-  console.log(data)
+  console.log(data);
   return data ?? null;
 }
 export async function action({ params, request }) {

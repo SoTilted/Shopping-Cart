@@ -35,7 +35,7 @@ export default function ShopPage() {
     <>
       <MainContent shop={true}>
         <Category>
-          <H1>Popular</H1>
+          <H1 primary={false}>Popular</H1>
           <ItemList>
             {fakeItems.map((item) => {
               return (
@@ -44,13 +44,14 @@ export default function ShopPage() {
                   title={item.title}
                   //     rating={item.rating['rate']}
                   price={item.price}
+                  classname={"loader"}
                 />
               );
             })}
           </ItemList>
         </Category>
         <Category>
-          <H1>Men</H1>
+          <H1 primary={false}>Men</H1>
           <ItemList>
             {fakeItems.map((item) => {
               return (
@@ -59,13 +60,14 @@ export default function ShopPage() {
                   title={item.title}
                   //  rating={item.rating['rate']}
                   price={item.price}
+                  classname={"loader"}
                 />
               );
             })}
           </ItemList>
         </Category>
         <Category>
-          <H1>Women</H1>
+          <H1 primary={false}>Women</H1>
           <ItemList>
             {fakeItems.map((item) => {
               return (
@@ -74,6 +76,7 @@ export default function ShopPage() {
                   title={item.title}
                   //  rating={item.rating['rate']}
                   price={item.price}
+                  classname={"loader"}
                 />
               );
             })}

@@ -31,7 +31,7 @@ export default function NavigationBar() {
       <NavBar>
         <NavSiteID>
           <Icon primary={true} path={mdiStoreCheck} size={1.5} />
-          <H1>Shop</H1>
+          <H1 primary={true}>Shop</H1>
         </NavSiteID>
         <NavLinks>
           <NavLink primary={true} to={"/"}>
