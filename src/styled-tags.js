@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { NavLink as BaseNavLink } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import { Icon as standardIcon } from "@mdi/react";
-import img from "./assets/ring.png";
+import img from "./assets/indian_jewellery.jpg";
 import svg from "./assets/svg-shape-3.svg";
 import font from "./assets/Courgette/Courgette-Regular.ttf";
 const titleColor = "#ffb139";
-const lightGreen = "rgb(100, 159, 74)";
-const darkGreen = "rgb(46, 84, 1)";
+const coolBlack = "rgb(32, 35, 30)";
+
 const GlobalStyle = createGlobalStyle`
 #root{
   height:100dvh;
@@ -19,7 +19,8 @@ const GlobalStyle = createGlobalStyle`
   padding:0;
   box-sizing:border-box;
 } &body {
-    background-color:${darkGreen};
+  
+    background-color:${coolBlack};
     color:white;
   }
 
@@ -34,7 +35,13 @@ const GlobalStyle = createGlobalStyle`
     font-family:'Courgette';
     src:url(${font}) format('truetype');
   }
+  @keyframes shine {
+    0% {left: -100px}
+    20% {left: 100%}
+    100% {left: 100%}}
+}
 `;
+
 const H1 = styled.h1`
   font-family: Courgette;
   border-bottom: ${(props) =>
@@ -65,6 +72,8 @@ const NavLink = styled(BaseNavLink)`
   margin-top: ${(props) => (props.primary ? `0` : `5px`)};
   color: ${(props) => (props.secondary ? `black` : `white`)};
   box-shadow: 0 0px 8px rgb(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
   &:visited {
   }
   &:hover {
@@ -75,26 +84,50 @@ const NavLink = styled(BaseNavLink)`
     color: black;
     background-color: ${titleColor};
   }
+  &:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    animation: ${(props) =>
+      props.secondary ? `shine 3s infinite linear;` : `none`};
+  }
 `;
+
 const NavBar = styled.nav`
+  @media (max-width: 382px) {
+    margin: 10px 10px 10px 10px;
+    top: 10px;
+  }
+  margin: 50px 50px 10px 50px;
   position: sticky;
   z-index: 1;
-  top: 0;
+  top: 50px;
   justify-content: space-between;
   gap: 4px;
   display: flex;
-  width: 100dvw;
-  background: linear-gradient(to top, ${darkGreen} 0%, ${lightGreen} 100%);
-  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+  background: ${coolBlack};
+  box-shadow: 0 0px 3px rgb(255, 255, 255, 0.6);
+  border-radius: 32px;
 `;
 
 const NavLinks = styled.div`
+  margin-right: 10px;
   display: flex;
-  gap: 5px;
+  gap: 5dvw;
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
+
 const NavSiteID = styled.div`
   display: flex;
   flex-direction: column;
@@ -104,6 +137,7 @@ const NavSiteID = styled.div`
   color: white;
   padding: 2px 0 4px 2px;
 `;
+
 const NavCart = styled.div`
   padding: 5px;
   margin-right: 5px;
@@ -129,7 +163,7 @@ const Banner = styled.div`
   position: relative;
   height: 40dvw;
   background-repeat: no-repeat;
-  background-size: 40% 100%;
+  background-size: 40% 90%;
 `;
 
 const BannerPhoto = styled.div`
@@ -141,7 +175,7 @@ const BannerPhoto = styled.div`
 
 const PageHeader = styled.div`
   width: 60dvw;
-  background-color: ${lightGreen};
+  background-color: ${coolBlack};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,7 +187,8 @@ const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-`;
+  align-items: center;
+`; //margin: ${(props) => (props.shop ? "auto" : "0")};
 
 const PageInfo = styled.div`
   padding: 20px 80px;
@@ -176,6 +211,7 @@ const Box = styled.div`
   align-items: center;
   text-align: center;
 `;
+
 const BoxGroup = styled.div`
   @media (max-width: 1180px) {
     flex-direction: column;
@@ -187,6 +223,7 @@ const BoxGroup = styled.div`
   align-items: center;
   gap: 20px;
 `;
+
 const Footer = styled.footer`
   display: flex;
   justify-content: center;
@@ -198,6 +235,50 @@ const Footer = styled.footer`
     font-size: 1.2rem;
   }
 `;
+
+const ItemList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 25px;
+  justify-content: center;
+  width: 50dvw;
+`;
+
+const CardDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 2px solid white;
+  border-top: 8px solid ${titleColor};
+  border-radius: 16px;
+  img {
+    max-width: 250px;
+    height: 150px;
+  }
+  h2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+  }
+  div {
+    p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+   
+  }
+`;
+
+const CartAmount = styled.div`
+  margin-top: 8px;
+`;
+
+const Category = styled.div``;
 export {
   NavLink,
   H1,
@@ -215,4 +296,8 @@ export {
   Box,
   BoxGroup,
   Footer,
+  ItemList,
+  CardDiv,
+  Category,
+  CartAmount,
 };

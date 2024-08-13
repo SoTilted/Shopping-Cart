@@ -11,12 +11,12 @@
         transform="matrix(-1.5513282159785167,5.551115123125783e-16,-6.661338147750939e-16,-1.5513282159785167,550.6953660725258,561.7536618040463)"></path>
     <defs>
         <linearGradient id="SvgjsLinearGradient1000" gradientTransform="rotate(33, 0.5, 0.5)">
-            <stop stop-color="rgb(100, 159, 74)" offset="0"></stop>
-            <stop stop-color="rgb(100, 159, 74)" offset="1"></stop>
+            <stop stop-color="rgb(32, 35, 30)" offset="0"></stop>
+            <stop stop-color="rgb(32, 35, 30)" offset="1"></stop>
         </linearGradient>
         <linearGradient id="SvgjsLinearGradient1001" gradientTransform="rotate(45, 0.5, 0.5)">
-            <stop stop-color="rgb(100, 159, 74)" offset="0"></stop>
-            <stop stop-color="rgb(100, 159, 74)" offset="1"></stop>
+            <stop stop-color="rgb(32, 35, 30)" offset="0"></stop>
+            <stop stop-color="rgb(32, 35, 30)" offset="1"></stop>
         </linearGradient>
     </defs>
 </svg>

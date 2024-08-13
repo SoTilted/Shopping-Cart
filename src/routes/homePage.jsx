@@ -30,10 +30,12 @@ NavLink.propTypes = {
 export default function HomePage() {
   return (
     <>
-      <MainContent>
+      <MainContent shop={false}>
         <Banner>
           <PageHeader>
-            <H1>You want to be your best version?</H1>
+            <H1>
+              You want to be your <u>best</u> version?
+            </H1>
             <p>Then we are inevitable.</p>
             <NavLink secondary={true} to={"shop"}>
               Shop now!
@@ -46,9 +48,9 @@ export default function HomePage() {
           <BoxGroup>
             <Box>
               <div>
-                <Icon path={mdiCurrencyUsd} size={1.5} />
-                <Icon path={mdiCurrencyUsd} size={1.5} />
-                <Icon path={mdiCurrencyUsd} size={1.5} />
+                <Icon path={mdiCurrencyUsd} size={1.5} color={"green"} />
+                <Icon path={mdiCurrencyUsd} size={1.5} color={"green"} />
+                <Icon path={mdiCurrencyUsd} size={1.5} color={"green"} />
               </div>
               <h2>Invaluable.</h2>
               <p>
@@ -57,7 +59,7 @@ export default function HomePage() {
               </p>
             </Box>
             <Box>
-              <Icon path={mdiAccountHeart} size={1.5} />
+              <Icon path={mdiAccountHeart} color={"red"} size={1.5} />
               <h2>Individuality.</h2>
               <p>
                 No two pieces are the same, we also do custom requests to
@@ -65,7 +67,7 @@ export default function HomePage() {
               </p>
             </Box>
             <Box>
-              <Icon path={mdiBriefcase} size={1.5} />
+              <Icon path={mdiBriefcase} color={"brown"} size={1.5} />
               <h2>Professionalism.</h2>
               <p>
                 Our employees are the cream of the crop, always striving for
@@ -73,11 +75,15 @@ export default function HomePage() {
               </p>
             </Box>
             <Box>
-              <Icon path={mdiClockFast} size={1.5} />
+              <Icon path={mdiClockFast} color={"gold"} size={1.5} />
               <h2>On Time.</h2>
               <p>
-                As valuable as gold. We respect our customers time and we pride
-                ourselves for never delaying.
+                As valuable as{" "}
+                <span style={{ color: "#ffb139" }}>
+                  <b>gold</b>
+                </span>
+                . We respect our customers time and we pride ourselves for never
+                delaying.
               </p>
             </Box>
           </BoxGroup>

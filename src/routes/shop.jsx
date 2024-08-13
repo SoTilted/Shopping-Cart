@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { H1 } from "../styled-tags";
+import { H1, ItemList, MainContent, Category } from "../styled-tags";
+import Card from "../components/card";
 const useItemFetch = () => {
   const [items, setItems] = useState(null);
   const [error, setError] = useState(null);
@@ -24,18 +25,111 @@ const useItemFetch = () => {
 };
 export default function ShopPage() {
   const { items, error, loading } = useItemFetch();
+  const fakeItems = [
+    { image: "", title: "item1", price: "free" },
+    { image: "", title: "item1", price: "free" },
+    { image: "", title: "item1", price: "free" },
+    { image: "", title: "item1", price: "free" },
+  ];
   return loading ? (
     <>
-      <H1>Loading...</H1>
+      <MainContent shop={true}>
+        <Category>
+          <H1>Popular</H1>
+          <ItemList>
+            {fakeItems.map((item) => {
+              return (
+                <Card
+                  image={item.image}
+                  title={item.title}
+                  //     rating={item.rating['rate']}
+                  price={item.price}
+                />
+              );
+            })}
+          </ItemList>
+        </Category>
+        <Category>
+          <H1>Men</H1>
+          <ItemList>
+            {fakeItems.map((item) => {
+              return (
+                <Card
+                  image={item.image}
+                  title={item.title}
+                  //  rating={item.rating['rate']}
+                  price={item.price}
+                />
+              );
+            })}
+          </ItemList>
+        </Category>
+        <Category>
+          <H1>Women</H1>
+          <ItemList>
+            {fakeItems.map((item) => {
+              return (
+                <Card
+                  image={item.image}
+                  title={item.title}
+                  //  rating={item.rating['rate']}
+                  price={item.price}
+                />
+              );
+            })}
+          </ItemList>
+        </Category>
+      </MainContent>
     </>
   ) : !error ? (
     <>
-      <H1>Welcome to the Shop!</H1>
-      <ul>
-        {items.map((item) => {
-          return <li key={item.title}>{item.title}</li>;
-        })}
-      </ul>
+      <MainContent shop={true}>
+        <Category>
+          <H1>Popular</H1>
+          <ItemList>
+            {items.map((item) => {
+              return (
+                <Card
+                  image={item.image}
+                  title={item.title}
+                  //     rating={item.rating['rate']}
+                  price={item.price}
+                />
+              );
+            })}
+          </ItemList>
+        </Category>
+        <Category>
+          <H1>Men</H1>
+          <ItemList>
+            {items.map((item) => {
+              return (
+                <Card
+                  image={item.image}
+                  title={item.title}
+                  //  rating={item.rating['rate']}
+                  price={item.price}
+                />
+              );
+            })}
+          </ItemList>
+        </Category>
+        <Category>
+          <H1>Women</H1>
+          <ItemList>
+            {items.map((item) => {
+              return (
+                <Card
+                  image={item.image}
+                  title={item.title}
+                  //  rating={item.rating['rate']}
+                  price={item.price}
+                />
+              );
+            })}
+          </ItemList>
+        </Category>
+      </MainContent>
     </>
   ) : (
     <p>A network error was encountered.</p>
