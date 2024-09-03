@@ -25,6 +25,8 @@ const useItemFetch = () => {
 };
 export default function ShopPage() {
   const { items, error, loading } = useItemFetch();
+  const categories = ["Popular", "Men", "Women"];
+
   const fakeItems = [
     { image: "", title: "item1", price: "free" },
     { image: "", title: "item1", price: "free" },
@@ -34,104 +36,50 @@ export default function ShopPage() {
   return loading ? (
     <>
       <MainContent shop={true}>
-        <Category>
-          <H1 primary={false}>Popular</H1>
-          <ItemList>
-            {fakeItems.map((item) => {
-              return (
-                <Card
-                  image={item.image}
-                  title={item.title}
-                  //     rating={item.rating['rate']}
-                  price={item.price}
-                  classname={"loader"}
-                />
-              );
-            })}
-          </ItemList>
-        </Category>
-        <Category>
-          <H1 primary={false}>Men</H1>
-          <ItemList>
-            {fakeItems.map((item) => {
-              return (
-                <Card
-                  image={item.image}
-                  title={item.title}
-                  //  rating={item.rating['rate']}
-                  price={item.price}
-                  classname={"loader"}
-                />
-              );
-            })}
-          </ItemList>
-        </Category>
-        <Category>
-          <H1 primary={false}>Women</H1>
-          <ItemList>
-            {fakeItems.map((item) => {
-              return (
-                <Card
-                  image={item.image}
-                  title={item.title}
-                  //  rating={item.rating['rate']}
-                  price={item.price}
-                  classname={"loader"}
-                />
-              );
-            })}
-          </ItemList>
-        </Category>
+        {categories.map((category) => {
+          return (
+            <Category>
+              <H1 primary={false}>{category}</H1>
+              <ItemList>
+                {fakeItems.map((item) => {
+                  return (
+                    <Card
+                      image={item.image}
+                      title={item.title}
+                      //     rating={item.rating['rate']}
+                      price={item.price}
+                      classname={"loader"}
+                    />
+                  );
+                })}
+              </ItemList>
+            </Category>
+          );
+        })}
       </MainContent>
     </>
   ) : !error ? (
     <>
       <MainContent shop={true}>
-        <Category>
-          <H1>Popular</H1>
-          <ItemList>
-            {items.map((item) => {
-              return (
-                <Card
-                  image={item.image}
-                  title={item.title}
-                  //     rating={item.rating['rate']}
-                  price={item.price}
-                />
-              );
-            })}
-          </ItemList>
-        </Category>
-        <Category>
-          <H1>Men</H1>
-          <ItemList>
-            {items.map((item) => {
-              return (
-                <Card
-                  image={item.image}
-                  title={item.title}
-                  //  rating={item.rating['rate']}
-                  price={item.price}
-                />
-              );
-            })}
-          </ItemList>
-        </Category>
-        <Category>
-          <H1>Women</H1>
-          <ItemList>
-            {items.map((item) => {
-              return (
-                <Card
-                  image={item.image}
-                  title={item.title}
-                  //  rating={item.rating['rate']}
-                  price={item.price}
-                />
-              );
-            })}
-          </ItemList>
-        </Category>
+        {categories.map((category) => {
+          return (
+            <Category>
+              <H1 primary={false}>{category}</H1>
+              <ItemList>
+                {items.map((item) => {
+                  return (
+                    <Card
+                      image={item.image}
+                      title={item.title}
+                      //     rating={item.rating['rate']}
+                      price={item.price}
+                    />
+                  );
+                })}
+              </ItemList>
+            </Category>
+          );
+        })}
       </MainContent>
     </>
   ) : (
